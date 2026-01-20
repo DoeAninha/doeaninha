@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cura da Aninha</title>
+  <style>
+    :root {
+      --roxo: #c9a3e6;
+      --roxo-escuro: #8e5db7;
+      --fundo: #faf7fd;
+      --texto: #333;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+    body { background: var(--fundo); color: var(--texto); }
+    header { background: var(--roxo); padding: 40px 20px; text-align: center; }
+    header h1 { color: #fff; font-size: 2.5rem; }
+    header p { color: #fff; margin-top: 10px; }
+    .container { max-width: 900px; margin: auto; padding: 30px 20px; }
+    .foto { background: #eee; border-radius: 12px; height: 300px; display: flex; align-items: center; justify-content: center; margin-bottom: 30px; }
+    .foto span { color: #777; }
+    h2 { color: var(--roxo-escuro); margin-bottom: 15px; }
+    p { margin-bottom: 15px; line-height: 1.6; }
+    .meta { background: #fff; padding: 20px; border-radius: 12px; margin: 30px 0; }
+    .barra { background: #eee; border-radius: 10px; overflow: hidden; margin: 10px 0; }
+    .barra div { height: 20px; width: 0%; background: var(--roxo-escuro); }
+    .pix { background: var(--roxo); color: #fff; padding: 25px; border-radius: 12px; text-align: center; }
+    .pix button { margin-top: 15px; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; }
+    .acoes { display: flex; gap: 15px; justify-content: center; margin-top: 15px; flex-wrap: wrap; }
+    footer { text-align: center; padding: 30px 10px; font-size: 0.9rem; color: #666; }
+    @media(max-width:600px){ header h1{font-size:2rem;} }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Cura da Aninha</h1>
+  <p>Uma campanha de amor, esperança e solidariedade</p>
+</header>
+
+<div class="container">
+
+  <div class="foto">
+    <span>Espaço para foto da Aninha</span>
+  </div>
+
+  <h2>A história da Aninha</h2>
+  <p>Aninha recebeu o primeiro diagnóstico de leucemia em outubro de 2021. Desde então, sua vida tem sido marcada por uma batalha intensa, cheia de coragem, dor e esperança. Foram inúmeras sessões de quimioterapia, tratamentos agressivos e longas internações, até que, em janeiro de 2023, veio a tão esperada notícia da cura.</p>
+  <p>Infelizmente, em maio de 2024, a doença voltou. Aninha enfrentou tudo novamente, com a força de uma verdadeira guerreira. Há um ano, ela passou por um transplante de medula óssea, renovando as esperanças de dias melhores. Porém, agora em janeiro, veio mais uma recaída.</p>
+  <p>Atualmente, os médicos indicam o tratamento <strong>CAR-T</strong>, uma imunoterapia inovadora que reprograma as células de defesa (linfócitos T) do próprio paciente em laboratório, para que elas reconheçam e ataquem as células cancerosas. Esse tratamento tem se mostrado eficaz em alguns tipos de leucemia e linfomas e é considerado, pelos médicos, a melhor e mais promissora alternativa para a Aninha, sendo a esperança de um combate definitivo.</p>
+  <p>O custo desse tratamento é extremamente alto, cerca de <strong>R$ 3.000.000,00</strong>, e infelizmente o plano de saúde negou a cobertura, alegando a existência de outras alternativas. Enquanto isso, Aninha segue enfrentando quimioterapia e uso contínuo de medicações.</p>
+  <p>Além do tratamento, há gastos constantes com medicamentos, transporte, alimentação e cuidados diários. Por isso, pedimos, com o coração cheio de esperança, a sua ajuda.</p>
+  <p><strong>🙏 Qualquer valor faz diferença. Qualquer ajuda é um gesto de amor.</strong></p>
+
+  <div class="meta">
+    <h2>Meta de arrecadação</h2>
+    <p><strong>R$ 15.000,00</strong></p>
+    <div class="barra"><div id="progresso"></div></div>
+    <p>Arrecadado: R$ <span id="valor">0</span></p>
+  </div>
+
+  <div class="pix">
+    <h2>Ajude com Pix</h2>
+    <p id="pix-chave">ernestotura1950@gmail.com</p>
+    <div class="acoes">
+      <button onclick="copiarPix()">Copiar Pix</button>
+      <button onclick="compartilhar()">Compartilhar site</button>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Campanha criada pela família da Aninha
+</footer>
+
+<script>
+  let arrecadado = 0;
+  const meta = 15000;
+  function atualizar(valor){
+    arrecadado += valor;
+    document.getElementById('valor').innerText = arrecadado.toFixed(2);
+    document.getElementById('progresso').style.width = Math.min((arrecadado/meta)*100,100) + '%';
+  }
+  function copiarPix(){
+    navigator.clipboard.writeText('ernestotura1950@gmail.com');
+    alert('Chave Pix copiada!');
+  }
+  function compartilhar(){
+    navigator.share ? navigator.share({ title:'Cura da Aninha', url: window.location.href }) : alert('Copie o link e compartilhe ❤️');
+  }
+</script>
+
+</body>
+</html>
